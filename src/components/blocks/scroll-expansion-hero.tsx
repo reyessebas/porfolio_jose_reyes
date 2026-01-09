@@ -62,32 +62,50 @@ const ScrollExpandMedia = ({
   // Manejar scroll natural del navegador para la animación
   useEffect(() => {
     const handleScroll = () => {
-      if (!isInView || !sectionRef.current) return
+      if (!sectionRef.current) return
 
       const rect = sectionRef.current.getBoundingClientRect()
       const windowHeight = window.innerHeight
       
-      // Calcular el progreso basado en la posición visible del elemento
-      const distanceFromTop = Math.max(0, windowHeight - rect.top)
-      const maxDistance = windowHeight + rect.height
-      
-      if (distanceFromTop <= 0) {
-        setScrollProgress(0)
-        setShowContent(false)
-      } else if (distanceFromTop >= maxDistance) {
+      // Solo calcular animación si el hero está en vista
+      if (rect.bottom < 0) {
         setScrollProgress(1)
         setShowContent(true)
+      } else if (rect.top > windowHeight) {
+        setScrollProgress(0)
+        setShowContent(false)
       } else {
-        const progress = Math.min(1, distanceFromTop / maxDistance)
+        // Calcular progreso: cuánto del hero se ha visto mientras scrollea
+        const totalDistance = rect.height
+        const scrolledDistance = -rect.top
+        
+        let progress = 0
+        if (scrolledDistance > 0) {
+          progress = Math.min(1, scrolledDistance / (totalDistance * 0.8))
+        }
+        
         setScrollProgress(progress)
-        setShowContent(progress > 0.7)
+        setShowContent(progress > 0.6)
       }
     }
+      
 
+    // Usar requestAnimationFrame para mejor performance
+    let rafId: number
+    const raf = () => {
+      handleScroll()
+      rafId = requestAnimationFrame(raf)
+    }
+    rafId = requestAnimationFrame(raf)
+
+    // También escuchar scroll como fallback
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [isInView])
-
+    
+    return () => {
+      cancelAnimationFrame(rafId)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
   useEffect(() => {
     const checkIfMobile = () => setIsMobileState(window.innerWidth < 768)
     checkIfMobile()
