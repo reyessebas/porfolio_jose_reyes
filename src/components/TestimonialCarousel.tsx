@@ -100,6 +100,8 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
                 alt={currentTestimonial.name}
                 className='w-full h-full object-cover'
                 draggable={false}
+                loading="lazy"
+                decoding="async"
               />
             </motion.div>
           </AnimatePresence>
@@ -187,6 +189,8 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
                 alt={currentTestimonial.name}
                 className='w-full h-full object-cover'
                 draggable={false}
+                loading="lazy"
+                decoding="async"
               />
             </motion.div>
           </AnimatePresence>

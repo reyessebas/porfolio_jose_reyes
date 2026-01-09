@@ -78,6 +78,8 @@ export const Projects: React.FC = () => {
                   src={p.image}
                   alt={p.title}
                   className="w-full h-full object-cover transition-transform duration-500 ease-smooth group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="p-5 flex flex-col h-full">

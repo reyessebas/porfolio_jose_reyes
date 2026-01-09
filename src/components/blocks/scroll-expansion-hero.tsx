@@ -136,7 +136,7 @@ const ScrollExpandMedia = ({
       <section className="relative flex flex-col items-center justify-start min-h-[100dvh]">
         <div className="relative w-full flex flex-col items-center min-h-[100dvh]">
           <motion.div className="absolute inset-0 z-0 h-full" initial={{ opacity: 0 }} animate={{ opacity: 1 - scrollProgress }} transition={{ duration: 0.1 }}>
-            <img src={bgImageSrc} alt="Background" className="w-screen h-screen object-cover object-center" />
+            <img src={bgImageSrc} alt="Background" className="w-screen h-screen object-cover object-center" loading="lazy" decoding="async" />
             <div className="absolute inset-0 bg-black/65" />
           </motion.div>
 
@@ -183,7 +183,7 @@ const ScrollExpandMedia = ({
                         muted
                         loop
                         playsInline
-                        preload="auto"
+                        preload="metadata"
                         className="w-full h-full object-cover rounded-xl"
                       />
                       <div className="absolute inset-0 z-10" style={{ pointerEvents: 'none' }}></div>
@@ -192,7 +192,7 @@ const ScrollExpandMedia = ({
                   )
                 ) : (
                   <div className="relative w-full h-full">
-                    <img src={mediaSrc} alt={title || 'Media content'} className="w-full h-full object-cover rounded-xl" />
+                    <img src={mediaSrc} alt={title || 'Media content'} className="w-full h-full object-cover rounded-xl" loading="lazy" decoding="async" />
                     <motion.div className="absolute inset-0 bg-black/50 rounded-xl" initial={{ opacity: 0.7 }} animate={{ opacity: 0.7 - scrollProgress * 0.3 }} transition={{ duration: 0.2 }} />
                   </div>
                 )}
