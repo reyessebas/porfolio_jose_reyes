@@ -53,6 +53,7 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
   const { t, lang } = useI18n();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [previewOpen, setPreviewOpen] = useState(false);
+  const [pdfLoading, setPdfLoading] = useState(true);
 
   const testimonials = useMemo(() => {
     const data = lang === 'es' ? testimonialDataES : testimonialDataEN;
@@ -268,11 +269,21 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
           <h3 className="text-lg font-semibold">{t('about.preview')}</h3>
           <button onClick={() => setPreviewOpen(false)} className="text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-white">✕</button>
         </div>
-        <div className="h-[70vh] bg-zinc-50 dark:bg-zinc-900">
+        <div className="h-[70vh] bg-zinc-50 dark:bg-zinc-900 relative">
+          {pdfLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 z-10 rounded-b-lg">
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">{t('about.loading') || 'Cargando CV...'}</p>
+              </div>
+            </div>
+          )}
           <iframe
             title="CV preview"
             src="/cv/CV-demo.pdf#toolbar=0&navpanes=0&scrollbar=1"
-            className="w-full h-full"
+            className="w-full h-full rounded-b-lg"
+            onLoad={() => setPdfLoading(false)}
+            style={{ willChange: 'contents' }}
           />
         </div>
         <div className="flex items-center justify-between px-4 py-3 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/80">

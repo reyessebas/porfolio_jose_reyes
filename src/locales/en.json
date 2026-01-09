@@ -21,7 +21,8 @@
     "desc": "Code, design, and strategy. Welcome to my professional portfolio. In the following sections, you can explore my project history, access my résumé, and discover the methodology behind my work. It’s a journey through my creative process and the visual elements that bring each digital solution to life.",
     "download": "Download CV",
     "preview": "Preview CV",
-    "close": "Close"
+    "close": "Close",
+    "loading": "Loading CV..."
 
   },  "testimonials": {
     "name": "Jose Sebastian Reyes Poveda",

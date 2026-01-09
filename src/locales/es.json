@@ -21,7 +21,8 @@
     "desc": "Código, diseño y estrategia. Bienvenido a mi portafolio profesional. En las siguientes secciones, podrás navegar por mi historial de proyectos, acceder a mi hoja de vida y descubrir la metodología detrás de mis creaciones. Es un recorrido por mi proceso creativo y los elementos visuales que dan vida a cada una de mis soluciones digitales.",
     "download": "Descargar CV",
     "preview": "Ver CV",
-    "close": "Cerrar"
+    "close": "Cerrar",
+    "loading": "Cargando CV..."
   },
   "testimonials": {
     "name": "Jose Sebastian Reyes Poveda",
