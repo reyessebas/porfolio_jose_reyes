@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0f19" />
+    <meta name="description" content="Jose Sebastian Reyes Poveda - Analista y Desarrollador de Software. Portfolio profesional con proyectos web, diseños UI/UX y desarrollo full-stack." />
+    <meta name="author" content="Jose Sebastian Reyes Poveda" />
+    <meta name="keywords" content="desarrollador web, portfolio, React, TypeScript, UI/UX, full-stack developer" />
+    <title>Jose Sebastian Reyes | Portfolio</title>
+    <script>
+      // Evitar FOUC de tema
+      (() => {
+        const theme = localStorage.getItem('theme');
+        const root = document.documentElement;
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          root.classList.add('dark');
+        } else {
+          root.classList.remove('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+  </html>

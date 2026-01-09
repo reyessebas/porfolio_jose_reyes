@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "workflow": "Workflow",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "WEB DEVELOPER PROGRAMMER",
+    "subtitle":"TRANSFORMING IDEAS INTO FUNCTIONAL AND ATTRACTIVE DIGITAL EXPERIENCES",
+    "date": "",
+    "about": {
+      "title": "About This Components",
+      "overview": "Code, design, and strategy. Welcome to my professional portfolio. In the following sections, you can explore my project history, access my résumé, and discover the methodology behind my work.",
+      "conclusion": "It’s a journey through my creative process and the visual elements that bring each of my digital solutions to life."
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "desc": "Code, design, and strategy. Welcome to my professional portfolio. In the following sections, you can explore my project history, access my résumé, and discover the methodology behind my work. It’s a journey through my creative process and the visual elements that bring each digital solution to life.",
+    "download": "Download CV",
+    "preview": "Preview CV",
+    "close": "Close"
+
+  },  "testimonials": {
+    "name": "Jose Sebastian Reyes Poveda",
+    "title": "Software Analyst and Developer",
+    "description": "I am Jose Sebastian Reyes Poveda, a passionate Colombian Software Analyst and Developer, 20 years old, with a clear vision: to transform ideas into functional and attractive digital experiences. I specialize in web design, combining logic, aesthetics, and usability to create solutions that truly connect with users. I love learning new technologies, collaborating with teams, and facing challenges that drive my professional growth. I am methodical, curious, and committed to quality at every stage of development."
+  },  "projects": {
+    "title": "Selected Projects",
+    "items": {
+      "panevi": {
+        "title": "Animated E-commerce for Panela Shop",
+        "description": "Full-stack ecommerce for panela products with dynamic catalog, cart, checkout, and admin panel. Built inventory logic, filtered search, and microinteractions to boost conversion."
+      },
+      "perfectvibes": {
+        "title": "E-commerce Spa",
+        "description": "Web platform for a nail spa with product sales and manageable booking agenda. Implemented booking flow, stock handling, and a lightweight backoffice for orders and schedules."
+      },
+      "sena": {
+        "title": "Community Learning Portal: SENA Digital Innovation",
+        "description": "Optimized landing for SENA programs with high performance and clear UX. Built the static data layer, fast navigation, and responsive design for mobile browsing."
+      },
+      "cieloazul": {
+        "title": "Hotel Booking Platform 'Cielo Azul'",
+        "description": "Boutique booking site with dynamic rate calculation by season/room type. Implemented reactive date picker, validations, and 100% responsive availability table."
+      }
+    }
+  },
+  "workflow": {
+    "title": "Workflow Demos"
+  },
+  "heroScroll": {
+    "subtitle": "An Approach ",
+    "title": "Professional and Technical"
+  },
+  "circularGallery": {
+    "title": "Designs, Prototypes, Websites, Landing Pages and more...",
+    "description": "Scroll to rotate the gallery"
+  },
+  "aiComponents": {
+    "label": "AI Components",
+    "title": "AI-Powered Components",
+    "description": "Interactive grid with AI-enhanced components; adaptive and responsive."
+  }
+}

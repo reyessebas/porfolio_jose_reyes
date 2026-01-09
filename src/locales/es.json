@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "workflow": "Workflow",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "PROGRAMADOR WEB DEVELOPER",
+    "subtitle":"TRANSFORMAR IDEAS EN EXPERIENCIAS DIGITALES FUNCIONALES Y ATRACTIVAS",
+    "date": "",
+    "about": {
+          "title": "SOBRE ESTOS COMPONENTES",
+      "overview": "Código, diseño y estrategia. Bienvenido a mi portafolio profesional. En las siguientes secciones, podrás navegar por mi historial de proyectos, acceder a mi hoja de vida y descubrir la metodología detrás de mis creaciones.",
+      "conclusion": "Es un recorrido por mi proceso creativo y los elementos visuales que dan vida a cada una de mis soluciones digitales."
+    }
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "desc": "Código, diseño y estrategia. Bienvenido a mi portafolio profesional. En las siguientes secciones, podrás navegar por mi historial de proyectos, acceder a mi hoja de vida y descubrir la metodología detrás de mis creaciones. Es un recorrido por mi proceso creativo y los elementos visuales que dan vida a cada una de mis soluciones digitales.",
+    "download": "Descargar CV",
+    "preview": "Ver CV",
+    "close": "Cerrar"
+  },
+  "testimonials": {
+    "name": "Jose Sebastian Reyes Poveda",
+    "title": "Analista y Desarrollador de Software",
+    "description": "Soy Jose Sebastian Reyes Poveda, un apasionado Analista y Desarrollador de Software colombiano con 20 años de edad y una visión clara: transformar ideas en experiencias digitales funcionales y atractivas. Me especializo en diseño web, combinando lógica, estética y usabilidad para crear soluciones que realmente conectan con los usuarios. Me encanta aprender nuevas tecnologías, colaborar en equipo y enfrentar desafíos que impulsan mi crecimiento profesional. Soy metódico, curioso y comprometido con la calidad en cada etapa del desarrollo."
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "items": {
+      "panevi": {
+        "title": "E-commerce Animado Tienda Panela",
+        "description": "Ecommerce full-stack para productos de panela con catálogo dinámico, carrito, checkout y panel admin. Implementé lógica de inventario, búsquedas con filtros y microinteracciones para mejorar conversión."
+      },
+      "perfectvibes": {
+        "title": "E-commerce",
+        "description": "Plataforma para spa de uñas con venta de productos y agenda administrable. Desarrollé el flujo de reservas, gestión de stock y un backoffice ligero para pedidos y horarios."
+      },
+      "sena": {
+        "title": "Portal de Formación Comunitaria: Innovación Digital SENA",
+        "description": "Landing optimizada para la oferta educativa SENA con rendimiento alto y UX clara. Construí la capa de datos estáticos, navegación rápida y diseño responsive para consulta móvil."
+      },
+      "cieloazul": {
+        "title": "Plataforma de Reservas Hotelera 'Cielo Azul'",
+        "description": "Web de reservas boutique con cálculo dinámico de tarifas por temporada/tipo de habitación. Implementé selector de fechas reactivo, validaciones y tabla de disponibilidad 100% responsive."
+      }
+    }
+  },
+  "workflow": {
+    "title": "Demos de Workflow"
+  },
+  "heroScroll": {
+    "subtitle": "Un Enfoque ",
+    "title": "Profesional y Técnico"
+  },
+  "circularGallery": {
+    "title": "Diseños, Prototipos, Sitios WEBS, Landing Page y más...",
+    "description": "Despláce para girar la galería"
+  },
+  "aiComponents": {
+    "label": "Componentes IA",
+    "title": "Componentes con Inteligencia Artificial",
+    "description": "Grid interactivo con componentes potenciados por IA; adaptable y responsivo."
+  }
+}
