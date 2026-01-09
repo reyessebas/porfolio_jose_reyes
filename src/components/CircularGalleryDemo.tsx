@@ -17,7 +17,7 @@ const galleryData: GalleryItem[] = [
 		common: 'Prototipo de pagina E-Commerce',
 		binomial: 'UI — Tienda Online',
 		photo: {
-			url: '/public/carru_nine.png',
+			url: '/carru_nine.png',
 			text: 'Catálogo de productos en una tienda online',
 			pos: '50% 50%',
 			by: 'Sb'
@@ -27,7 +27,7 @@ const galleryData: GalleryItem[] = [
 		common: 'Sitio Web Corporativo',
 		binomial: 'UX — Website',
 		photo: {
-			url: '/public/carru_TEN.png',
+			url: '/carru_TEN.png',
 			text: 'Sitio Web corporativo en laptop',
 			pos: '50% 40%',
 		by: 'Sb'
@@ -37,7 +37,7 @@ const galleryData: GalleryItem[] = [
 		common: 'Wireframes Pagina Web',
 		binomial: 'Prototipo — Sitio Web',
 		photo: {
-			url: '/public/carru_eight.png',
+			url: '/carru_eight.png',
 			text: 'Prototipo de un sitio web para la ventas de productos',
 			pos: '50% 60%',
 			by: 'Sb'
@@ -47,7 +47,7 @@ const galleryData: GalleryItem[] = [
 		common: 'Wireframes, Sketches & Flows',
 		binomial: 'UI — Proyecto',
 		photo: {
-			url: '/public/carru_seven.png',
+			url: '/carru_seven.png',
 			text: 'Pagina con wireframes y flujos de usuario',
 			pos: '50% 50%',
 			by: 'Sb'
@@ -57,7 +57,7 @@ const galleryData: GalleryItem[] = [
 		common: 'Lading Page Producto',
 		binomial: 'UI — Productos',
 		photo: {
-			url: '/public/carru_four.png',
+			url: '/carru_four.png',
 			text: 'Panel informativo de una landing page de producto',
 			pos: '50% 50%',
 			by: 'Sb'
@@ -67,7 +67,7 @@ const galleryData: GalleryItem[] = [
 		common: 'Figma UI/UX',
 		binomial: 'UI/UX Componentes',
 		photo: {
-			url: '/public/carru_five.png',
+			url: '/carru_five.png',
 			text: 'Componentes y guías de un sistema de diseño',
 			pos: '50% 50%',
 			by: 'Sb'
@@ -87,7 +87,7 @@ const galleryData: GalleryItem[] = [
 		common: 'Protipo Page',
 		binomial: 'Landing — Campaña',
 		photo: {
-			url: '/public/carru_two.png',
+			url: '/carru_two.png',
 			text: 'Sección de sistema ',
 			pos: '50% 40%',
 			by: 'Sb'
@@ -97,7 +97,7 @@ const galleryData: GalleryItem[] = [
 		common: 'Wireframes & User Flows',
 		binomial: 'Prototipado — Baja Fidelidad',
 		photo: {
-			url: '/public/carru_three.png',
+			url: '/carru_three.png',
 			text: 'Wireframes y flujos de usuario bocetados',
 			pos: '50% 50%',
 			by: 'Sb'

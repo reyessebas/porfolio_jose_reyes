@@ -7,7 +7,7 @@ export function HeroScrollDemo() {
   const { t } = useI18n();
   const randomImageUrls = [
    
-    "..//public/elemento_one.png",
+    '/elemento_one.png',
   
   ];
 

@@ -13,21 +13,21 @@ type Project = {
 const projectData = [
   {
     id: 'panevi',
-    image: '../../public/proyectos/panevi.png',
+    image: '/proyectos/panevi.png',
     demo: 'https://github.com/paneviid#readme',
     github: 'https://github.com/reyessebas/Panevi',
     tags: ['Php', 'Javascript', 'Html', 'Css', 'Scss'],
   },
     {
     id: 'sena',
-    image: '../../public/proyectos/lading_sena.png',
+    image: '/proyectos/lading_sena.png',
     demo: 'https://reyessebas.github.io/oferta-sena-programas/',
     github: 'https://github.com/reyessebas/oferta-sena-programas',
     tags: ['Html', 'Css'],
   },
   {
     id: 'perfectvibes',
-    image: '../../public/proyectos/perfectvibes.png',
+    image: '/proyectos/perfectvibes.png',
     demo: 'https://github.com/reyessebas/Perfectvibes',
     github: 'https://github.com/reyessebas/Perfectvibes',
     tags: ['Php', 'Javascript', 'Html', 'Css', 'Scss'],
@@ -35,7 +35,7 @@ const projectData = [
 
   {
     id: 'cieloazul',
-    image: '../../public/proyectos/cieloazul.png',
+    image: '/proyectos/cieloazul.png',
     demo: 'https://reyessebas.github.io/cieloazul_hotel/',
     github: 'https://github.com/reyessebas/cieloazul_hotel',
     tags: ['Html', 'Css', 'JavaScript', 'Tailwind'],

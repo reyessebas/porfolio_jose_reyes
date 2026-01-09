@@ -27,7 +27,7 @@ const testimonialDataES = {
   description:
     "Soy Jose Sebastian Reyes Poveda, un apasionado Analista y Desarrollador de Software colombiano con 20 años de edad y una visión clara: transformar ideas en experiencias digitales funcionales y atractivas. Me especializo en diseño web, combinando lógica, estética y usabilidad para crear soluciones que realmente conectan con los usuarios. Me encanta aprender nuevas tecnologías, colaborar en equipo y enfrentar desafíos que impulsan mi crecimiento profesional. Soy metódico, curioso y comprometido con la calidad en cada etapa del desarrollo.",
   imageUrl:
-   "/public/perrr.jpeg",
+    "/per.jpeg",
   githubUrl: "https://github.com/reyessebas",
   whatsappUrl: "https://wa.me/573214109194",
   linkedinUrl: "https://www.linkedin.com/in/jsebastianreye",
@@ -39,7 +39,7 @@ const testimonialDataEN = {
   description:
     "I am Jose Sebastian Reyes Poveda, a passionate Colombian Software Analyst and Developer, 20 years old, with a clear vision: to transform ideas into functional and attractive digital experiences. I specialize in web design, combining logic, aesthetics, and usability to create solutions that truly connect with users. I love learning new technologies, collaborating with teams, and facing challenges that drive my professional growth. I am methodical, curious, and committed to quality at every stage of development.",
   imageUrl:
-    "/public/perrr.jpeg",
+    "/per.jpeg",
   githubUrl: "https://github.com/reyessebas",
   whatsappUrl: "https://wa.me/573214109194",
   linkedinUrl: "https://www.linkedin.com/in/jsebastianreye",

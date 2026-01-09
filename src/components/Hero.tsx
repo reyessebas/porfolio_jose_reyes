@@ -25,9 +25,9 @@ interface MediaContentCollection {
 
 const sampleMediaContent: MediaContentCollection = {
   video: {
-    src: './public/video_hero.mp4',
+    src: '/video_hero.mp4',
     poster: '',
-    background: './public/a.jpg',
+    background: '/a.jpg',
     title: '',
     date: '',
     scrollToExpand: '',
@@ -39,8 +39,8 @@ const sampleMediaContent: MediaContentCollection = {
     },
   },
   image: {
-    src: './public/b.jpg',
-    background: './public/c.jpg',
+    src: '/b.jpg',
+    background: '/c.jpg',
     title: '',
     date: '',
     scrollToExpand: '',
