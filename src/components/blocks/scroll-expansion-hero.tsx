@@ -31,101 +31,62 @@ const ScrollExpandMedia = ({
 }: ScrollExpandMediaProps) => {
   const [scrollProgress, setScrollProgress] = useState<number>(0)
   const [showContent, setShowContent] = useState<boolean>(false)
-  const [mediaFullyExpanded, setMediaFullyExpanded] = useState<boolean>(false)
-  const [touchStartY, setTouchStartY] = useState<number>(0)
+  const [isInView, setIsInView] = useState<boolean>(true)
   const [isMobileState, setIsMobileState] = useState<boolean>(false)
 
   const sectionRef = useRef<HTMLDivElement | null>(null)
+  const triggerRef = useRef<HTMLDivElement | null>(null)
 
+  // Resetear estado cuando cambia el tipo de media
   useEffect(() => {
     setScrollProgress(0)
     setShowContent(false)
-    setMediaFullyExpanded(false)
   }, [mediaType])
 
+  // Usar Intersection Observer para detectar si la sección está en vista
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      // Si ya está expandido, permitir scroll normal
-      if (mediaFullyExpanded) {
-        // Solo prevenir si intenta scroll hacia arriba en el inicio
-        if (e.deltaY < 0 && window.scrollY <= 5) {
-          setMediaFullyExpanded(false)
-          e.preventDefault()
-        }
-        // En caso contrario, dejar que el scroll continúe normalmente
-        return
-      }
-      
-      // Si no está expandido, interceptar para la animación de expansión
-      e.preventDefault()
-      const scrollDelta = e.deltaY * 0.0009
-      const newProgress = Math.min(Math.max(scrollProgress + scrollDelta, 0), 1)
-      setScrollProgress(newProgress)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting)
+      },
+      { threshold: 0.3 }
+    )
 
-      if (newProgress >= 1) {
-        setMediaFullyExpanded(true)
-        setShowContent(true)
-      } else if (newProgress < 0.75) {
-        setShowContent(false)
-      }
+    if (triggerRef.current) {
+      observer.observe(triggerRef.current)
     }
 
-    const handleTouchStart = (e: TouchEvent) => {
-      setTouchStartY(e.touches[0].clientY)
-    }
+    return () => observer.disconnect()
+  }, [])
 
-    const handleTouchMove = (e: TouchEvent) => {
-      if (!touchStartY) return
-      const touchY = e.touches[0].clientY
-      const deltaY = touchStartY - touchY
-      
-      // Si ya está expandido, permitir scroll normal
-      if (mediaFullyExpanded) {
-        if (deltaY < -20 && window.scrollY <= 5) {
-          setMediaFullyExpanded(false)
-          e.preventDefault()
-        }
-        // En caso contrario, dejar que el touch/scroll continúe normalmente
-        return
-      }
-      
-      // Si no está expandido, interceptar para la animación de expansión
-      e.preventDefault()
-      const scrollFactor = deltaY < 0 ? 0.008 : 0.005
-      const scrollDelta = deltaY * scrollFactor
-      const newProgress = Math.min(Math.max(scrollProgress + scrollDelta, 0), 1)
-      setScrollProgress(newProgress)
-      if (newProgress >= 1) {
-        setMediaFullyExpanded(true)
-        setShowContent(true)
-      } else if (newProgress < 0.75) {
-        setShowContent(false)
-      }
-      setTouchStartY(touchY)
-    }
-
-    const handleTouchEnd = () => setTouchStartY(0)
-
+  // Manejar scroll natural del navegador para la animación
+  useEffect(() => {
     const handleScroll = () => {
-      // Solo resetear scroll si NO está expandido
-      if (!mediaFullyExpanded && window.scrollY > 0) {
-        window.scrollTo(0, 0)
+      if (!isInView || !sectionRef.current) return
+
+      const rect = sectionRef.current.getBoundingClientRect()
+      const windowHeight = window.innerHeight
+      
+      // Calcular el progreso basado en la posición visible del elemento
+      const distanceFromTop = Math.max(0, windowHeight - rect.top)
+      const maxDistance = windowHeight + rect.height
+      
+      if (distanceFromTop <= 0) {
+        setScrollProgress(0)
+        setShowContent(false)
+      } else if (distanceFromTop >= maxDistance) {
+        setScrollProgress(1)
+        setShowContent(true)
+      } else {
+        const progress = Math.min(1, distanceFromTop / maxDistance)
+        setScrollProgress(progress)
+        setShowContent(progress > 0.7)
       }
     }
 
-    window.addEventListener('wheel', handleWheel as unknown as EventListener, { passive: false })
-    window.addEventListener('scroll', handleScroll as EventListener)
-    window.addEventListener('touchstart', handleTouchStart as unknown as EventListener, { passive: false })
-    window.addEventListener('touchmove', handleTouchMove as unknown as EventListener, { passive: false })
-    window.addEventListener('touchend', handleTouchEnd as EventListener)
-    return () => {
-      window.removeEventListener('wheel', handleWheel as unknown as EventListener)
-      window.removeEventListener('scroll', handleScroll as EventListener)
-      window.removeEventListener('touchstart', handleTouchStart as unknown as EventListener)
-      window.removeEventListener('touchmove', handleTouchMove as unknown as EventListener)
-      window.removeEventListener('touchend', handleTouchEnd as EventListener)
-    }
-  }, [scrollProgress, mediaFullyExpanded, touchStartY])
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [isInView])
 
   useEffect(() => {
     const checkIfMobile = () => setIsMobileState(window.innerWidth < 768)
@@ -148,6 +109,7 @@ const ScrollExpandMedia = ({
 
   return (
     <div ref={sectionRef} className="transition-colors duration-700 ease-in-out overflow-x-hidden">
+      <div ref={triggerRef} className="absolute -top-[50vh] pointer-events-none" />
       <section className="relative flex flex-col items-center justify-start min-h-[100dvh]">
         <div className="relative w-full flex flex-col items-center min-h-[100dvh]">
           <motion.div className="absolute inset-0 z-0 h-full" initial={{ opacity: 0 }} animate={{ opacity: 1 - scrollProgress }} transition={{ duration: 0.1 }}>
