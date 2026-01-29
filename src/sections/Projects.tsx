@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useI18n } from '@/providers/LanguageProvider'
+import ResponsiveImage from '@/components/ui/responsive-image'
 
 type Project = {
   title: string
@@ -74,14 +75,12 @@ export const Projects: React.FC = () => {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
               <div className="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
-                <img
+                <ResponsiveImage
                   src={p.image}
                   alt={p.title}
-                  width="400"
-                  height="300"
+                  width={400}
+                  height={300}
                   className="w-full h-full object-cover transition-transform duration-500 ease-smooth group-hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
                 />
               </div>
               <div className="p-5 flex flex-col h-full">

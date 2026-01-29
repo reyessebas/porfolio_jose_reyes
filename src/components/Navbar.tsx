@@ -3,6 +3,7 @@ import { useI18n } from '@/providers/LanguageProvider'
 import { useMedia } from '@/providers/MediaProvider'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
+import ResponsiveImage from '@/components/ui/responsive-image'
 
 const Sun = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
@@ -40,7 +41,14 @@ export const Navbar: React.FC = () => {
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-[#2b2b2b] bg-zinc-900/95 dark:bg-zinc-950/70 border-b border-zinc-700/60 dark:border-zinc-800/60">
       <nav className="container mx-auto grid grid-cols-[auto_1fr_auto] items-center h-auto md:h-16 px-2 sm:px-3 md:px-6 py-3 md:py-0 gap-2 sm:gap-3 md:gap-4 text-zinc-100">
         <div className="flex items-center gap-1 sm:gap-2 md:gap-3">
-          <img src="/logo.png" alt="Logo" width="40" height="40" className="h-4 sm:h-8 md:h-10 cursor-pointer" />
+          <ResponsiveImage 
+            src="/logo.png" 
+            alt="Logo" 
+            width={40} 
+            height={40} 
+            className="h-4 sm:h-8 md:h-10 cursor-pointer"
+            priority
+          />
           <a
             href="#home"
             className="font-bold text-xs sm:text-lg md:text-xl bg-gradient-to-r from-amber-600 via-amber-500 to-amber-300 dark:from-amber-600 dark:via-amber-400 dark:to-amber-100 bg-clip-text text-transparent drop-shadow-sm"
