@@ -7,7 +7,26 @@
     <meta name="description" content="Jose Sebastian Reyes Poveda - Analista y Desarrollador de Software. Portfolio profesional con proyectos web, diseños UI/UX y desarrollo full-stack." />
     <meta name="author" content="Jose Sebastian Reyes Poveda" />
     <meta name="keywords" content="desarrollador web, portfolio, React, TypeScript, UI/UX, full-stack developer" />
+    
+    <!-- Preconnect a orígenes externos -->
+    <link rel="preconnect" href="https://static.cdn-luma.com" crossorigin>
+    <link rel="dns-prefetch" href="https://static.cdn-luma.com">
+    
     <title>Jose Sebastian Reyes | Portfolio</title>
+    
+    <!-- CSS crítico inline para eliminar bloqueo de renderización -->
+    <style>
+      /* Estilos críticos para renderización inicial */
+      html { scroll-behavior: smooth; }
+      body { margin: 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      #root { min-height: 100vh; }
+      .tap-highlight-none { -webkit-tap-highlight-color: transparent; }
+      
+      /* Prevenir FOUC */
+      body { opacity: 0; animation: fadeIn 0.3s ease-in forwards; }
+      @keyframes fadeIn { to { opacity: 1; } }
+    </style>
+    
     <script>
       // Evitar FOUC de tema
       (() => {
@@ -25,7 +44,5 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
-  <style>
-    html { scroll-behavior: smooth; }
-  </style>
+</html>
   </html>

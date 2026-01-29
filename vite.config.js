@@ -20,5 +20,13 @@ export default defineConfig({
             },
         },
         chunkSizeWarningLimit: 1000,
+        cssCodeSplit: true,
+        minify: 'esbuild',
+    },
+    css: {
+        devSourcemap: false,
+    },
+    esbuild: {
+        drop: ['console', 'debugger'],
     },
 });
