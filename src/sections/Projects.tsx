@@ -77,6 +77,8 @@ export const Projects: React.FC = () => {
                 <img
                   src={p.image}
                   alt={p.title}
+                  width="400"
+                  height="300"
                   className="w-full h-full object-cover transition-transform duration-500 ease-smooth group-hover:scale-105"
                   loading="lazy"
                   decoding="async"

@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero'
 import { useMedia } from '@/providers/MediaProvider'
 import { useI18n } from '@/providers/LanguageProvider'
-import { title } from 'framer-motion/client'
 
 interface MediaAbout {
   overview: string

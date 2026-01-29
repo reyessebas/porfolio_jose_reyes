@@ -1,10 +1,13 @@
+import { lazy, Suspense } from 'react'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import About from '@/sections/About'
-import Projects from '@/sections/Projects'
-import Skills from '@/components/Skills'
-import SelectorShowcase from '@/sections/SelectorShowcase'
 import { Github, Linkedin, MessageCircle, Mail, MapPin } from 'lucide-react'
+
+// Lazy load de componentes pesados
+const Projects = lazy(() => import('@/sections/Projects'))
+const Skills = lazy(() => import('@/components/Skills'))
+const SelectorShowcase = lazy(() => import('@/sections/SelectorShowcase'))
 
 function Footer() {
   return (
@@ -81,6 +84,12 @@ function Footer() {
   )
 }
 
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center py-20">
+    <div className="animate-pulse text-amber-500">Cargando...</div>
+  </div>
+)
+
 function App() {
   return (
     <div className="tap-highlight-none">
@@ -88,12 +97,18 @@ function App() {
       <main className="pt-16">
         <Hero />
         <About />
-        <Projects />
+        <Suspense fallback={<LoadingFallback />}>
+          <Projects />
+        </Suspense>
         <section id="gallery">
-          <SelectorShowcase />
+          <Suspense fallback={<LoadingFallback />}>
+            <SelectorShowcase />
+          </Suspense>
         </section>
         <section id="skills">
-          <Skills />
+          <Suspense fallback={<LoadingFallback />}>
+            <Skills />
+          </Suspense>
         </section>
       </main>
       <Footer />

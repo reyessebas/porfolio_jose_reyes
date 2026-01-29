@@ -9,4 +9,16 @@ export default defineConfig({
             '@': fileURLToPath(new URL('./src', import.meta.url)),
         },
     },
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    'react-vendor': ['react', 'react-dom'],
+                    'framer-motion': ['framer-motion'],
+                    'icons': ['lucide-react', 'react-icons'],
+                },
+            },
+        },
+        chunkSizeWarningLimit: 1000,
+    },
 });
