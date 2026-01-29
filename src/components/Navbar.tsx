@@ -45,7 +45,7 @@ export const Navbar: React.FC = () => {
             src="/logo.png" 
             alt="Logo" 
             width={40} 
-            height={40} 
+            height={30} 
             className="h-4 sm:h-8 md:h-10 cursor-pointer"
             priority
           />

@@ -7,7 +7,7 @@ const galleryData: GalleryItem[] = [
 		common: 'Landing Page Figma',
 		binomial: 'UI/UX — Landing Page',
 		photo: {
-			url: '/video_figma.mp4',
+			url: '/carru_five.png',
 			text: 'Laptop con interfaz de una landing page E-commerce',
 			pos: '50% 50%',
 			by: 'Sb'
@@ -77,7 +77,7 @@ const galleryData: GalleryItem[] = [
 		common: 'Pagina Landing Figma',
 		binomial: 'UI/UX — Landing Page',
 		photo: {
-			url: '/video_figma.mp4',
+			url: '/elemento_one.png',
 			text: 'Laptop con interfaz de una landing page E-commerce',
 			pos: '50% 50%',
 			by: 'Sb'

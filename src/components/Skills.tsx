@@ -14,7 +14,7 @@ const defaultFrameChrome = {
 const demoFrames = [
   {
     id: 1,
-    video: 'https://static.cdn-luma.com/files/981e483f71aa764b/Company%20Thing%20Exported.mp4',
+    video: '/carru_one.png',
     defaultPos: { x: 0, y: 0, w: 4, h: 4 },
     mediaSize: 1,
     isHovered: false,
@@ -22,7 +22,7 @@ const demoFrames = [
   },
   {
     id: 2,
-    video: 'https://static.cdn-luma.com/files/58ab7363888153e3/WebGL%20Exported%20(1).mp4',
+    video: '/carru_two.png',
     defaultPos: { x: 4, y: 0, w: 4, h: 4 },
     mediaSize: 1,
     isHovered: false,
@@ -30,7 +30,7 @@ const demoFrames = [
   },
   {
     id: 3,
-    video: 'https://static.cdn-luma.com/files/58ab7363888153e3/Jitter%20Exported%20Poster.mp4',
+    video: '/carru_three.png',
     defaultPos: { x: 8, y: 0, w: 4, h: 4 },
     mediaSize: 1,
     isHovered: false,
@@ -38,7 +38,7 @@ const demoFrames = [
   },
   {
     id: 4,
-    video: 'https://static.cdn-luma.com/files/58ab7363888153e3/Exported%20Web%20Video.mp4',
+    video: '/carru_four.png',
     defaultPos: { x: 0, y: 4, w: 4, h: 4 },
     mediaSize: 1,
     isHovered: false,
@@ -46,7 +46,7 @@ const demoFrames = [
   },
   {
     id: 5,
-    video: 'https://static.cdn-luma.com/files/58ab7363888153e3/Logo%20Exported.mp4',
+    video: '/carru_five.png',
     defaultPos: { x: 4, y: 4, w: 4, h: 4 },
     mediaSize: 1,
     isHovered: false,
@@ -54,7 +54,7 @@ const demoFrames = [
   },
   {
     id: 6,
-    video: 'https://static.cdn-luma.com/files/58ab7363888153e3/Animation%20Exported%20(4).mp4',
+    video: '/carru_six.png',
     defaultPos: { x: 8, y: 4, w: 4, h: 4 },
     mediaSize: 1,
     isHovered: false,
@@ -62,7 +62,7 @@ const demoFrames = [
   },
   {
     id: 7,
-    video: 'https://static.cdn-luma.com/files/58ab7363888153e3/Illustration%20Exported%20(1).mp4',
+    video: '/carru_seven.png',
     defaultPos: { x: 0, y: 8, w: 4, h: 4 },
     mediaSize: 1,
     isHovered: false,
@@ -70,7 +70,7 @@ const demoFrames = [
   },
   {
     id: 8,
-    video: 'https://static.cdn-luma.com/files/58ab7363888153e3/Art%20Direction%20Exported.mp4',
+    video: '/carru_eight.png',
     defaultPos: { x: 4, y: 8, w: 4, h: 4 },
     mediaSize: 1,
     isHovered: false,
@@ -78,7 +78,7 @@ const demoFrames = [
   },
   {
     id: 9,
-    video: 'https://static.cdn-luma.com/files/58ab7363888153e3/Product%20Video.mp4',
+    video: '/carru_nine.png',
     defaultPos: { x: 8, y: 8, w: 4, h: 4 },
     mediaSize: 1,
     isHovered: false,
