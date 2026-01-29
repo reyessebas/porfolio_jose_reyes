@@ -1,0 +1,18 @@
+# Permitir acceso a todos los rastreadores
+User-agent: *
+Allow: /
+
+# Indicar la ubicación del sitemap
+Sitemap: https://porfoliojosereyes.netlify.app/sitemap.xml
+
+# Desacelerar rastreadores muy agresivos
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Denegar acceso a directorios privados
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
