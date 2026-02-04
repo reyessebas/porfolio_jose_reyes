@@ -1,21 +1,18 @@
 "use client"
 
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
-
-const cn = (...classes: (string | undefined | null | false)[]) =>
-  classes.filter(Boolean).join(' ')
+import { useState, useEffect, useRef } from "react"
+import { motion } from "framer-motion"
 
 interface Frame {
   id: number
   video: string
   defaultPos: { x: number; y: number; w: number; h: number }
-  corner: string
-  edgeHorizontal: string
-  edgeVertical: string
+  corner?: string
+  edgeHorizontal?: string
+  edgeVertical?: string
   mediaSize: number
-  borderThickness: number
-  borderSize: number
+  borderThickness?: number
+  borderSize?: number
   isHovered: boolean
 }
 
@@ -24,12 +21,12 @@ interface FrameComponentProps {
   width: number | string
   height: number | string
   className?: string
-  corner: string
-  edgeHorizontal: string
-  edgeVertical: string
+  corner?: string
+  edgeHorizontal?: string
+  edgeVertical?: string
   mediaSize: number
-  borderThickness: number
-  borderSize: number
+  borderThickness?: number
+  borderSize?: number
   showFrame: boolean
   isHovered: boolean
 }
@@ -38,7 +35,7 @@ function FrameComponent({
   video,
   width,
   height,
-  className = '',
+  className = "",
   corner,
   edgeHorizontal,
   edgeVertical,
@@ -64,7 +61,7 @@ function FrameComponent({
       style={{
         width,
         height,
-        transition: 'width 0.3s ease-in-out, height 0.3s ease-in-out',
+        transition: "width 0.3s ease-in-out, height 0.3s ease-in-out",
       }}
     >
       <div className="relative w-full h-full overflow-hidden">
@@ -72,20 +69,20 @@ function FrameComponent({
           className="absolute inset-0 flex items-center justify-center"
           style={{
             zIndex: 1,
-            transition: 'all 0.3s ease-in-out',
-            padding: showFrame ? `${borderThickness}px` : '0',
-            width: showFrame ? `${borderSize}%` : '100%',
-            height: showFrame ? `${borderSize}%` : '100%',
-            left: showFrame ? `${(100 - borderSize) / 2}%` : '0',
-            top: showFrame ? `${(100 - borderSize) / 2}%` : '0',
+            transition: "all 0.3s ease-in-out",
+            padding: showFrame ? `${borderThickness}px` : "0",
+            width: showFrame ? `${borderSize}%` : "100%",
+            height: showFrame ? `${borderSize}%` : "100%",
+            left: showFrame ? `${(100 - borderSize) / 2}%` : "0",
+            top: showFrame ? `${(100 - borderSize) / 2}%` : "0",
           }}
         >
           <div
             className="w-full h-full overflow-hidden"
             style={{
               transform: `scale(${mediaSize})`,
-              transformOrigin: 'center',
-              transition: 'transform 0.3s ease-in-out',
+              transformOrigin: "center",
+              transition: "transform 0.3s ease-in-out",
             }}
           >
             <video
@@ -99,7 +96,7 @@ function FrameComponent({
           </div>
         </div>
 
-        {showFrame && (
+        {showFrame && corner && edgeHorizontal && edgeVertical && (
           <div className="absolute inset-0" style={{ zIndex: 2 }}>
             <div
               className="absolute top-0 left-0 w-16 h-16 bg-contain bg-no-repeat"
@@ -107,49 +104,49 @@ function FrameComponent({
             />
             <div
               className="absolute top-0 right-0 w-16 h-16 bg-contain bg-no-repeat"
-              style={{ backgroundImage: `url(${corner})`, transform: 'scaleX(-1)' }}
+              style={{ backgroundImage: `url(${corner})`, transform: "scaleX(-1)" }}
             />
             <div
               className="absolute bottom-0 left-0 w-16 h-16 bg-contain bg-no-repeat"
-              style={{ backgroundImage: `url(${corner})`, transform: 'scaleY(-1)' }}
+              style={{ backgroundImage: `url(${corner})`, transform: "scaleY(-1)" }}
             />
             <div
               className="absolute bottom-0 right-0 w-16 h-16 bg-contain bg-no-repeat"
-              style={{ backgroundImage: `url(${corner})`, transform: 'scale(-1, -1)' }}
+              style={{ backgroundImage: `url(${corner})`, transform: "scale(-1, -1)" }}
             />
 
             <div
               className="absolute top-0 left-16 right-16 h-16"
               style={{
                 backgroundImage: `url(${edgeHorizontal})`,
-                backgroundSize: 'auto 64px',
-                backgroundRepeat: 'repeat-x',
+                backgroundSize: "auto 64px",
+                backgroundRepeat: "repeat-x",
               }}
             />
             <div
               className="absolute bottom-0 left-16 right-16 h-16"
               style={{
                 backgroundImage: `url(${edgeHorizontal})`,
-                backgroundSize: 'auto 64px',
-                backgroundRepeat: 'repeat-x',
-                transform: 'rotate(180deg)',
+                backgroundSize: "auto 64px",
+                backgroundRepeat: "repeat-x",
+                transform: "rotate(180deg)",
               }}
             />
             <div
               className="absolute left-0 top-16 bottom-16 w-16"
               style={{
                 backgroundImage: `url(${edgeVertical})`,
-                backgroundSize: '64px auto',
-                backgroundRepeat: 'repeat-y',
+                backgroundSize: "64px auto",
+                backgroundRepeat: "repeat-y",
               }}
             />
             <div
               className="absolute right-0 top-16 bottom-16 w-16"
               style={{
                 backgroundImage: `url(${edgeVertical})`,
-                backgroundSize: '64px auto',
-                backgroundRepeat: 'repeat-y',
-                transform: 'scaleX(-1)',
+                backgroundSize: "64px auto",
+                backgroundRepeat: "repeat-y",
+                transform: "scaleX(-1)",
               }}
             />
           </div>
@@ -167,47 +164,39 @@ interface DynamicFrameLayoutProps {
   gapSize?: number
 }
 
-export function DynamicFrameLayout({
-  frames: initialFrames,
+export function DynamicFrameLayout({ 
+  frames: initialFrames, 
   className,
   showFrames = false,
   hoverSize = 6,
-  gapSize = 4,
+  gapSize = 4
 }: DynamicFrameLayoutProps) {
   const [frames] = useState<Frame[]>(initialFrames)
   const [hovered, setHovered] = useState<{ row: number; col: number } | null>(null)
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768)
-    handleResize()
-    window.addEventListener('resize', handleResize, { passive: true })
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
 
   const getRowSizes = () => {
-    if (hovered === null) return '4fr 4fr 4fr'
+    if (hovered === null) return "4fr 4fr 4fr"
     const { row } = hovered
     const nonHoveredSize = (12 - hoverSize) / 2
-    return [0, 1, 2].map((r) => (r === row ? `${hoverSize}fr` : `${nonHoveredSize}fr`)).join(' ')
+    return [0, 1, 2].map((r) => (r === row ? `${hoverSize}fr` : `${nonHoveredSize}fr`)).join(" ")
   }
 
   const getColSizes = () => {
-    if (hovered === null) return '4fr 4fr 4fr'
+    if (hovered === null) return "4fr 4fr 4fr"
     const { col } = hovered
     const nonHoveredSize = (12 - hoverSize) / 2
-    return [0, 1, 2].map((c) => (c === col ? `${hoverSize}fr` : `${nonHoveredSize}fr`)).join(' ')
+    return [0, 1, 2].map((c) => (c === col ? `${hoverSize}fr` : `${nonHoveredSize}fr`)).join(" ")
   }
 
   const getTransformOrigin = (x: number, y: number) => {
-    const vertical = y === 0 ? 'top' : y === 4 ? 'center' : 'bottom'
-    const horizontal = x === 0 ? 'left' : x === 4 ? 'center' : 'right'
+    const vertical = y === 0 ? "top" : y === 4 ? "center" : "bottom"
+    const horizontal = x === 0 ? "left" : x === 4 ? "center" : "right"
     return `${vertical} ${horizontal}`
   }
 
   if (isMobile) {
     return (
-      <div className={cn('grid grid-cols-1 sm:grid-cols-2 gap-4 p-4', className)}>
+      <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 ${className}`}>
         {frames.map((frame) => (
           <div
             key={frame.id}
@@ -231,11 +220,11 @@ export function DynamicFrameLayout({
     <div
       className={`relative w-full h-full ${className}`}
       style={{
-        display: 'grid',
+        display: "grid",
         gridTemplateRows: getRowSizes(),
         gridTemplateColumns: getColSizes(),
         gap: `${gapSize}px`,
-        transition: 'grid-template-rows 0.4s ease, grid-template-columns 0.4s ease',
+        transition: "grid-template-rows 0.4s ease, grid-template-columns 0.4s ease",
       }}
     >
       {frames.map((frame) => {
@@ -249,7 +238,7 @@ export function DynamicFrameLayout({
             className="relative"
             style={{
               transformOrigin,
-              transition: 'transform 0.4s ease',
+              transition: "transform 0.4s ease",
             }}
             onMouseEnter={() => setHovered({ row, col })}
             onMouseLeave={() => setHovered(null)}
