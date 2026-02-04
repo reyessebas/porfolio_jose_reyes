@@ -70,11 +70,11 @@ function FrameComponent({
           style={{
             zIndex: 1,
             transition: "all 0.3s ease-in-out",
-            padding: showFrame ? `${borderThickness}px` : "0",
-            width: showFrame ? `${borderSize}%` : "100%",
-            height: showFrame ? `${borderSize}%` : "100%",
-            left: showFrame ? `${(100 - borderSize) / 2}%` : "0",
-            top: showFrame ? `${(100 - borderSize) / 2}%` : "0",
+            padding: showFrame ? `${borderThickness ?? 0}px` : "0",
+            width: showFrame ? `${borderSize ?? 100}%` : "100%",
+            height: showFrame ? `${borderSize ?? 100}%` : "100%",
+            left: showFrame ? `${(100 - (borderSize ?? 100)) / 2}%` : "0",
+            top: showFrame ? `${(100 - (borderSize ?? 100)) / 2}%` : "0",
           }}
         >
           <div
@@ -173,6 +173,14 @@ export function DynamicFrameLayout({
 }: DynamicFrameLayoutProps) {
   const [frames] = useState<Frame[]>(initialFrames)
   const [hovered, setHovered] = useState<{ row: number; col: number } | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    handleResize()
+    window.addEventListener("resize", handleResize, { passive: true })
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   const getRowSizes = () => {
     if (hovered === null) return "4fr 4fr 4fr"
